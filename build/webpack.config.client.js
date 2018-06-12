@@ -2,7 +2,7 @@
 * @Author: huziangWEB
 * @Date:   2018-06-09 01:05:46
 * @Last Modified by:   huziangWEB
-* @Last Modified time: 2018-06-09 02:05:47
+* @Last Modified time: 2018-06-09 17:39:37
 */
 const path = require('path')
 const HTMLPlugin = require('html-webpack-plugin')
@@ -39,8 +39,15 @@ if (isDev) {
 				{
 			    test: /\.styl/,
 			    use: [
-			      'style-loader',
+			      'vue-style-loader',
 			      'css-loader',
+			    //   {
+			    //   	loader: 'css-loader',
+			    //   	options: {
+			    //   		module: true,
+			    //   		localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]'
+			    //   	}
+			  		// },
 			      {
 			        loader: 'postcss-loader',
 			        options: {
@@ -74,7 +81,7 @@ if (isDev) {
 	  		{
 					test: /\.styl/,
 		      use: ExtractPlugin.extract({
-		        fallback: 'style-loader',
+		        fallback: 'vue-style-loader',
 		        use: [
 		          'css-loader',
 		          {
